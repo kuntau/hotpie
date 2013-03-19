@@ -1,12 +1,14 @@
 {
-  "name": "application-name",
+  "name": "KuntauHotPie",
   "version": "0.0.1",
   "private": true,
-  "scripts": {
-    "start": "node app"
+  "main": "app/server.coffee",
+  "engines": {
+    "node": "0.8.18"
   },
   "dependencies": {
     "express": "3.1.0",
-    "jade": "*"
+    "jade": "*",
+    "coffee-script": "~1.6.2"
   }
 }
