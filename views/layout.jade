@@ -1,11 +1,13 @@
-!!!
+doctype 5
 html
   head
     title= "Hot Pie - " + title
-    link(rel='stylesheet', href='/stylesheets/#{stylesheet}.css')
+    //- link(rel="stylesheet", href="/stylesheets/style.css")
+    link(rel="stylesheet", href="/stylesheets/#{stylesheet}.css")
   body
+    //- block content
+    #header
+      h1= title
 
-  	#header
-  		h1= title
-
-  	!= body
+    #content
+      block content
