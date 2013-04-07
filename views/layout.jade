@@ -1,12 +1,16 @@
-doctype 5
+!!!5
 html
   head
     title= "Hot Pie - " + title
     link(rel="stylesheet", href="/stylesheets/#{stylesheet}.css")
+    //- link(rel="stylesheet", href="/stylesheets/#{stylesheet}.css")
   body
     
     #header
-      h1= title
+      h1= title + ' with extra spice'
 
     #content
       block content
+
+    #footer
+      p Copyright &copy; 2013 - Kuntau Inc.

@@ -4,6 +4,8 @@ express = require 'express'
 http    = require 'http'
 path    = require 'path'
 coffee  = require 'coffee-script'
+stylus  = require 'stylus'
+nib     = require 'nib'
 
 app = express()
 
@@ -12,6 +14,16 @@ app.configure( ->
   app.set 'views', __dirname + '/views'
   app.set 'view engine', 'jade'
   app.use express.favicon()
+  app.use stylus.middleware(
+    src: __dirname + '/views'
+    dest: __dirname + '/public'
+    compile: (str, path) ->
+      stylus(str)
+        .set('filename', path)
+        .set('compress', true)
+        .use(nib())
+  )
+  # app.use stylus.middleware __dirname + '/public'
   app.use express.logger('dev')
   app.use express.bodyParser()
   app.use express.methodOverride()
@@ -24,6 +36,7 @@ app.configure 'development', ->
 
 # Routes
 require('./apps/authentication/routes') app
+require('./apps/lister/routes') app
 require('./apps/rostering/routes') app
 
 app.get '/', (req, res) ->

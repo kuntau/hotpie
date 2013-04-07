@@ -1,0 +1,21 @@
+{
+	"folders":
+	[
+		{
+			"path": "./",
+			"name": "Hot Pie",
+			"file_exclude_patterns": [
+				"*.sublime-*"
+			],
+			"folder_exclude_patterns": [
+				"node_modules"
+			]
+		}
+	],
+	"settings":
+	{
+		"tab_szie": 2,
+		"translate_tabs_to_spaces": true,
+		"use_tab_stops": true
+	}
+}
