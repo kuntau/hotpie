@@ -17,11 +17,12 @@ app.configure( ->
   app.use stylus.middleware(
     src: __dirname + '/views'
     dest: __dirname + '/public'
-    compile: (str, path) ->
-      stylus(str)
-        .set('filename', path)
-        .set('compress', true)
-        .use(nib())
+    compile: ( str, path ) ->
+      stylus( str )
+        .set( 'filename', path  )
+        .set( 'compress', true  )
+        .use( nib() )
+        .import( 'nib' )
   )
   # app.use stylus.middleware __dirname + '/public'
   app.use express.logger('dev')

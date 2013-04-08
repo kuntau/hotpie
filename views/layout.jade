@@ -5,9 +5,13 @@ html
     link(rel="stylesheet", href="/stylesheets/#{stylesheet}.css")
     //- link(rel="stylesheet", href="/stylesheets/#{stylesheet}.css")
   body
-    
+
     #header
-      h1= title + ' with extra spice'
+      a(href='http://localhost:3000') HOME
+      a(href='#{title}', title)
+        h1= title + ' with extra spice'
+      //- h1= '<a href=title>' + ' with extra spice</a>'
+        //- a(href="http://yahoo.com") what??????
 
     #content
       block content

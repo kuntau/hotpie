@@ -1,2 +1,7 @@
-body{margin:100px;background:#ccc;font:16px "Lucida Grande",helvetica,sans-serif}
-#footer{text-align:center}
+body{margin:100px;background:#e6e6e6;color:#1a1a1a;font:16px "Lucida Grande",helvetica,sans-serif;}
+body a{color:#7c2020;font-weight:bold}
+body a:hover{color:brow;font-weight:bold}
+body h1{color:#531515}
+#content{line-height:24px}
+#footer{text-align:center;font-size:10px}
+tr{text-align:left}
