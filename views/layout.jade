@@ -6,15 +6,23 @@ html
     //- link(rel="stylesheet", href="/stylesheets/#{stylesheet}.css")
   body
 
-    #header
-      a(href='http://localhost:3000') HOME
-      a(href='#{title}', title)
-        h1= title + ' with extra spice'
-      //- h1= '<a href=title>' + ' with extra spice</a>'
-        //- a(href="http://yahoo.com") what??????
+    #wrapper
+      #header
+        p
+          ul
+            li
+              a(href='http://localhost:3000') home
+            li
+              a(href='rostering') rostering
+            li
+              a(href='login') login
+        a(href='#{title}', title)
+          h1= title
+        //- h1= '<a href=title>' + ' with extra spice</a>'
+          //- a(href="http://yahoo.com") what??????
 
-    #content
-      block content
+      #content
+        block content
 
-    #footer
-      p Copyright &copy; 2013 - Kuntau Inc.
+      #footer
+        p Copyright &copy; 2013 - Kuntau Inc.
