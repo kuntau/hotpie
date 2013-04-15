@@ -3,7 +3,6 @@
 express   = require 'express'
 http      = require 'http'
 path      = require 'path'
-mongoose  = require 'mongoose'
 coffee    = require 'coffee-script'
 stylus    = require 'stylus'
 nib       = require 'nib'
@@ -44,7 +43,7 @@ require('./apps/driver/routes') app
 
 app.get '/', (req, res) ->
   res.render 'index',
-    title: 'Index of Home'
+    title: 'PAPSB System'
     stylesheet: 'style'
 
 http.createServer(app).listen app.get('port'), ->

@@ -3,8 +3,9 @@ extends ../../../views/layout
 block content
   p: b start of biodata
   hr
-  p Name: #{driver[0].name}
-  p ID:   #{driver[0].id}
-  p Bus:  #{driver[0].bas}
+  ul
+    li Name: #{driver.name}
+    li ID:   #{driver.id}
+    li Bus:  #{driver.bas}
   hr
   p: i end of biodata
