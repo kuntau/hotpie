@@ -1,0 +1,14 @@
+extends ../../../views/layout
+
+block content
+  p: b list of drivers
+  hr
+  ul
+    //- for id in drivers
+    //-   if id.id == '001'
+    //-     li= id.name + " | " + id.bus
+    for driver, i in drivers
+      li #{driver.id}. #{driver.name} | #{driver.bas}
+
+  hr
+  p: i end of drivers

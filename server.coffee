@@ -1,11 +1,12 @@
 # coffee server
 
-express = require 'express'
-http    = require 'http'
-path    = require 'path'
-coffee  = require 'coffee-script'
-stylus  = require 'stylus'
-nib     = require 'nib'
+express   = require 'express'
+http      = require 'http'
+path      = require 'path'
+mongoose  = require 'mongoose'
+coffee    = require 'coffee-script'
+stylus    = require 'stylus'
+nib       = require 'nib'
 
 app = express()
 
@@ -39,6 +40,7 @@ app.configure 'development', ->
 require('./apps/authentication/routes') app
 require('./apps/lister/routes') app
 require('./apps/rostering/routes') app
+require('./apps/driver/routes') app
 
 app.get '/', (req, res) ->
   res.render 'index',

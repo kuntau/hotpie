@@ -1,25 +1,19 @@
-!!!5
+doctype 5
 html
   head
     title= "Hot Pie - " + title
     link(rel="stylesheet", href="/stylesheets/#{stylesheet}.css")
-    //- link(rel="stylesheet", href="/stylesheets/#{stylesheet}.css")
   body
 
     #wrapper
       #header
         p
           ul
-            li
-              a(href='http://localhost:3000') home
-            li
-              a(href='rostering') rostering
-            li
-              a(href='login') login
-        a(href='#{title}', title)
-          h1= title
-        //- h1= '<a href=title>' + ' with extra spice</a>'
-          //- a(href="http://yahoo.com") what??????
+            li: a(href='/') home
+            li: a(href='/driver') driver
+            li: a(href='/rostering') rostering
+            li: a(href='/login') login
+        h1: a(href='#{title}') #{title}
 
       #content
         block content
