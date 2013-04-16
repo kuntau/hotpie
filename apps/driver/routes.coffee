@@ -24,8 +24,9 @@ Drivers = mongoose.model 'Drivers', DriverSchema
 
 routes = (app) ->
   app.param 'id', (req, res, next, id) ->
-    Drivers.find {id: id}, (err, docs) ->
-      req.driver = docs[0]
+    Drivers.findOne {id: id}, (err, docs) ->
+      req.driver = docs
+      # req.driver = docs[0]
       next()
 
   app.get '/driver', (req, res) ->
@@ -52,16 +53,30 @@ routes = (app) ->
       res.json err if err
       res.redirect '/driver/' + driver.id
 
+  # show driver
   app.get '/driver/:id', (req, res) ->
     res.render "#{__dirname}/views/profile",
       title:  "Biodata of #{req.driver.name}"
       stylesheet:  'style'
       driver: req.driver
 
+  # edit driver
   app.get '/driver/:id/edit', (req, res) ->
     res.render "#{__dirname}/views/edit",
       title: "Edit Driver"
       stylesheet: "style"
       driver: req.driver
+
+  # update driver
+  app.put '/driver/:id', (req, res) ->
+    b = req.body
+    Drivers.update({ id: req.params.id }
+      {id: b.id, name: b.name, bas: b.bas}
+      (err) -> res.redirect '/driver/' + b.id)
+
+  # delete driver
+  app.delete '/driver/:id', (req, res) ->
+    Drivers.remove
+      id: req.params.id, (err) -> res.redirect '/driver/'
 
 module.exports = routes
