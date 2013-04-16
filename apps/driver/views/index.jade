@@ -5,11 +5,8 @@ block content
     a(href='driver/new', class='button-link') add new driver
   hr
   ul
-    //- for id in drivers
-    //-   if id.id == '001'
-    //-     li= id.name + " | " + id.bus
     for driver, i in drivers
       li: a(href="/driver/#{driver.id}") #{driver.id}. #{driver.name} [ #{driver.bas} ]
 
   hr
-  p: i end of drivers
+  p: b end of drivers

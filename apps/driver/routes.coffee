@@ -53,23 +53,15 @@ routes = (app) ->
       res.redirect '/driver/' + driver.id
 
   app.get '/driver/:id', (req, res) ->
-    # Drivers.findOne {id: req.params.id}, (err, driver) ->
     res.render "#{__dirname}/views/profile",
       title:  "Biodata of #{req.driver.name}"
-      # title:  "Biodata of driver"
       stylesheet:  'style'
       driver: req.driver
 
-  # app.get '/driver/:id', (req, res) ->
-  #   id = parseInt(req.params.id)
-  #   name = get_driver_name parseInt(id, 10)
-  #   driver = get_driver_bio parseInt(id, 10)
-  #   res.render "#{__dirname}/views/profile",
-  #     title:  "Biodata of #{driver[0].name}"
-  #     stylesheet:  'style'
-  #     driver: driver
-
   app.get '/driver/:id/edit', (req, res) ->
-    res.send 'Editing driver n0 ' + req.params.id
+    res.render "#{__dirname}/views/edit",
+      title: "Edit Driver"
+      stylesheet: "style"
+      driver: req.driver
 
 module.exports = routes

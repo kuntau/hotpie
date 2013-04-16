@@ -1,0 +1,11 @@
+extends ../../../views/layout
+
+block content
+  form(method="POST", action="/driver")
+    p ID:
+      input#id(type="number", name="id", value="#{driver.id}")
+    p Name:
+      input#name(type="text", name="name", value="#{driver.name}")
+    p Bas:
+      input#bas(type="number", name="bas", value="#{driver.bas}")
+    p: button(type="submit") Save
