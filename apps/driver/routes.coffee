@@ -31,10 +31,11 @@ routes = (app) ->
 
   app.get '/driver', (req, res) ->
     Drivers.find {}, (err, docs) ->
+      throw err if err
       res.render "#{__dirname}/views/index",
         title: 'Driver List'
         stylesheet: 'style'
-        drivers: docs
+        drivers: docs.sort('bus', -1)
 
   # new user
   app.get '/driver/new', (req, res) ->
