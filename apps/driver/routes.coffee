@@ -9,6 +9,9 @@ drivers = [
 get_driver_name = (id) ->
   driver.name for driver in drivers when driver.id is id
 
+get_driver_bas  = (id) ->
+  driver.id for driver in drivers when driver.id is id
+
 get_driver_bio  = (id) ->
   driver for driver in drivers when driver.id is id
 
