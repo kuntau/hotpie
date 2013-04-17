@@ -28,12 +28,14 @@ DriverSchema = new mongoose.Schema
 Drivers = mongoose.model 'Drivers', DriverSchema
 
 routes = (app) ->
+  # intercept routing
   app.param 'id', (req, res, next, id) ->
     Drivers.findOne {id: id}, (err, docs) ->
       req.driver = docs
       # req.driver = docs[0]
       next()
 
+  # list all driver
   app.get '/driver', (req, res) ->
     Drivers.find {}, (err, docs) ->
       throw err if err
