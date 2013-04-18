@@ -32,7 +32,6 @@ routes = (app) ->
   app.param 'id', (req, res, next, id) ->
     Drivers.findOne {id: id}, (err, docs) ->
       req.driver = docs
-      # req.driver = docs[0]
       next()
 
   # list all driver
