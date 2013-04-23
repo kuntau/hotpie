@@ -1,0 +1,15 @@
+extends views/layout
+
+block content
+  ul
+    for driver in drivers
+      li= driver + '!!!'
+  
+  hr
+  
+  |Name
+  input(type='text', name='name')
+  |ID
+  input(type='text', name='id')
+  |Bas
+  input(type='text', name='bas')
