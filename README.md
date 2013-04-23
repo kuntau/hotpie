@@ -5,6 +5,9 @@ Node Exercise Originally by PeepCode & Tutsplus
 
 + Custom driver details field
 + Smart inline notification on actions `update` or `delete` etc.
++ Implement login
++ Set cookie
++ Integrate with [Angular.js](http://angularjs.org)
 
 ##FEATURES
 
