@@ -6,26 +6,15 @@ drivers = [
   { "id": 5, "name": "Saffie Ali",    "bas": 144 }
 ]
 
-get_driver_bio  = (id, opt = all) ->
-  if opt is id
-    driver.id for driver in drivers when driver.id is id
-  else if opt is name
-    driver.name for driver in drivers when driver.id is id
-  else if opt is bas
-    driver.bas for driver in drivers when driver.id is id
-  else
-    driver for driver in drivers when driver.id is id
-
 mongoose  = require 'mongoose'
-mongoose.connect "mongodb://localhost/papsb"
+# mongoose.connect "mongodb://localhost/papsb"
 
-DriverSchema = new mongoose.Schema
+AngularSchema = new mongoose.Schema
   id: Number,
-  name: String,
   name: String,
   bas:  Number
 
-Drivers = mongoose.model 'Drivers', DriverSchema
+Angular = mongoose.model 'Angular', AngularSchema
 
 routes = (app) ->
   # intercept routing
@@ -36,8 +25,8 @@ routes = (app) ->
       next()
 
   # list all driver
-  app.get '/driver', (req, res) ->
-    Drivers.find {}, (err, docs) ->
+  app.get '/angular', (req, res) ->
+    Angular.find {}, (err, docs) ->
       throw err if err
       res.render "#{__dirname}/views/index",
         title: 'Driver List'
