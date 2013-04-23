@@ -1,0 +1,22 @@
+doctype 5
+html
+  head
+    title= "Hot Pie - " + title
+    link(rel="stylesheet", href="../../../stylesheets/style.css")
+  body
+
+    #wrapper
+      #header
+        p
+          ul
+            li: a(href='/') home
+            li: a(href='/driver') driver
+            li: a(href='/rostering') rostering
+            li: a(href='/login') login
+        h1: a(href='/') #{title}
+
+      #content
+        block content
+
+      #footer
+        p Copyright &copy; 2013 - Kuntau Inc.
