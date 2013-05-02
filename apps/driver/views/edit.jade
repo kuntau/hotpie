@@ -4,9 +4,12 @@ block content
   form(method="POST", action="/driver/#{driver.id}")
     input(type="hidden", name="_method", value="PUT")
     p ID:
+      br
       input#id(type="number", name="id", value="#{driver.id}")
     p Name:
+      br
       input#name(type="text", name="name", value="#{driver.name}")
     p Bas:
+      br
       input#bas(type="number", name="bas", value="#{driver.bas}")
     p: button(type="submit") Save

@@ -36,8 +36,9 @@ app.configure 'development', ->
 require('./apps/authentication/routes') app
 require('./apps/lister/routes') app
 require('./apps/rostering/routes') app
-require('./apps/driver/routes') app
+# require('./apps/driver/routes') app
 require('./apps/angular/routes') app
+require('./apps/monk/routes') app
 
 app.get '/', (req, res) ->
   res.render 'index',

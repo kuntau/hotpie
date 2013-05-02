@@ -3,9 +3,12 @@ extends ../../../views/layout
 block content
   form(method="POST", action="/driver")
     p ID:
+      br
       input#id(type="number", name="id")
     p Name:
+      br
       input#name(type="text", name="name")
     p Bas:
+      br
       input#bas(type="number", name="bas")
     p: button(type="submit") Create
