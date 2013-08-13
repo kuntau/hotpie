@@ -21,7 +21,7 @@ mongoose.connect "mongodb://localhost/papsb"
 
 DriverSchema = new mongoose.Schema
   id: Number,
-  name: String,
+  ic: String,
   name: String,
   bas:  Number
 
