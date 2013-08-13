@@ -16,8 +16,8 @@ get_driver_bio  = (id, opt = all) ->
   else
     driver for driver in drivers when driver.id is id
 
-mongoose  = require 'mongoose'
-mongoose.connect "mongodb://localhost/papsb"
+# mongoose  = require 'mongoose'
+# mongoose.connect "mongodb://localhost/papsb"
 
 DriverSchema = new mongoose.Schema
   id: Number,
