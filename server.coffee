@@ -33,29 +33,13 @@ app.configure 'development', ->
   app.use express.errorHandler()
 
 # Routes
-require('./apps/authentication/routes') app
-require('./apps/employee/routes') app
-require('./apps/lister/routes') app
-require('./apps/rostering/routes') app
-require('./apps/driver/routes') app
-# require('./apps/angular/routes') app
-# require('./apps/monk/routes') app
+require('./app/authentication/routes') app
+require('./app/employee/routes') app
 
 app.get '/', (req, res) ->
   res.render 'index',
     title: 'PAPSB System'
     stylesheet: 'style'
-
-mongoose  = require 'mongoose'
-mongoose.connect "mongodb://localhost/papsb"
-
-# DriverSchema = new mongoose.Schema
-#   id: Number,
-#   name: String,
-#   name: String,
-#   bas:  Number
-
-# Drivers = mongoose.model 'Drivers', DriverSchema
 
 http.createServer(app).listen app.get('port'), ->
   console.log "Express server listening on port " + app.get('port')

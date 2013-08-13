@@ -16,27 +16,27 @@ get_driver_bio  = (id, opt = all) ->
   else
     driver for driver in drivers when driver.id is id
 
-# mongoose  = require 'mongoose'
-# mongoose.connect "mongodb://localhost/papsb"
+mongoose  = require 'mongoose'
+mongoose.connect "mongodb://localhost/papsb"
 
-DriverSchema = new mongoose.Schema
+EmployeeSchema = new mongoose.Schema
   id: Number,
   ic: String,
   name: String,
   bas:  Number
 
-Drivers = mongoose.model 'Drivers', DriverSchema
+Employees = mongoose.model 'Employees', EmployeeSchema
 
 routes = (app) ->
   # intercept routing
   app.param 'id', (req, res, next, id) ->
-    Drivers.findOne {id: id}, (err, docs) ->
+    Employees.findOne {id: id}, (err, docs) ->
       req.driver = docs
       next()
 
   # list all driver
   app.get '/driver', (req, res) ->
-    Drivers.find {}, (err, docs) ->
+    Employees.find {}, (err, docs) ->
       throw err if err
       res.render "#{__dirname}/views/index",
         title: 'Driver List'
@@ -52,7 +52,7 @@ routes = (app) ->
   # create user
   app.post '/driver', (req, res) ->
     b = req.body
-    new Drivers
+    new Employees
       id: b.id
       name: b.name
       bas: b.bas
@@ -77,13 +77,13 @@ routes = (app) ->
   # update driver
   app.put '/driver/:id', (req, res) ->
     b = req.body
-    Drivers.update({ id: req.params.id }
+    Employees.update({ id: req.params.id }
       {id: b.id, name: b.name, bas: b.bas}
       (err) -> res.redirect '/driver/' + b.id)
 
   # delete driver
   app.delete '/driver/:id', (req, res) ->
-    Drivers.remove
+    Employees.remove
       id: req.params.id, (err) -> res.redirect '/driver/'
 
 module.exports = routes
