@@ -46,5 +46,16 @@ app.get '/', (req, res) ->
     title: 'PAPSB System'
     stylesheet: 'style'
 
+mongoose  = require 'mongoose'
+mongoose.connect "mongodb://localhost/papsb"
+
+# DriverSchema = new mongoose.Schema
+#   id: Number,
+#   name: String,
+#   name: String,
+#   bas:  Number
+
+# Drivers = mongoose.model 'Drivers', DriverSchema
+
 http.createServer(app).listen app.get('port'), ->
   console.log "Express server listening on port " + app.get('port')
