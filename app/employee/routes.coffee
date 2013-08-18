@@ -35,7 +35,7 @@ routes = (app) ->
       next()
 
   # list all driver
-  app.get '/driver', (req, res) ->
+  app.get '/employee', (req, res) ->
     Employees.find {}, (err, docs) ->
       throw err if err
       res.render "#{__dirname}/views/index",
@@ -44,13 +44,13 @@ routes = (app) ->
         drivers: docs.sort '-name'
 
   # new user
-  app.get '/driver/new', (req, res) ->
+  app.get '/employee/new', (req, res) ->
     res.render "#{__dirname}/views/new",
       title: "New Driver"
       stylesheet: 'style'
 
   # create user
-  app.post '/driver', (req, res) ->
+  app.post '/employee', (req, res) ->
     b = req.body
     new Employees
       id: b.id
@@ -58,31 +58,31 @@ routes = (app) ->
       bas: b.bas
     .save (err, driver) ->
       res.json err if err
-      res.redirect '/driver/' + driver.id
+      res.redirect '/employee/' + driver.id
 
   # show driver
-  app.get '/driver/:id', (req, res) ->
+  app.get '/employee/:id', (req, res) ->
     res.render "#{__dirname}/views/profile",
       title:  "Biodata of #{req.driver.name}"
       stylesheet:  'style'
       driver: req.driver
 
   # edit driver
-  app.get '/driver/:id/edit', (req, res) ->
+  app.get '/employee/:id/edit', (req, res) ->
     res.render "#{__dirname}/views/edit",
       title: "Edit Driver"
       stylesheet: "style"
       driver: req.driver
 
   # update driver
-  app.put '/driver/:id', (req, res) ->
+  app.put '/employee/:id', (req, res) ->
     b = req.body
     Employees.update({ id: req.params.id }
       {id: b.id, name: b.name, bas: b.bas}
       (err) -> res.redirect '/driver/' + b.id)
 
   # delete driver
-  app.delete '/driver/:id', (req, res) ->
+  app.delete '/employee/:id', (req, res) ->
     Employees.remove
       id: req.params.id, (err) -> res.redirect '/driver/'
 

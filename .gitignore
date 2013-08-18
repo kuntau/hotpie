@@ -2,3 +2,4 @@ node_modules
 *.sublime-workspace
 .c9revisions
 *.log
+.idea

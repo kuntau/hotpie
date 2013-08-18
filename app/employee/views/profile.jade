@@ -8,9 +8,9 @@ block content
     li ID:   #{driver.id}
     li Bus:  #{driver.bas}
   ul
-    li: a(href="/driver/#{driver.id}/edit") Edit
+    li: a(href="/employee/#{driver.id}/edit") Edit
     li
-      form(action='/driver/#{driver.id}', method="POST")
+      form(action='/employee/#{driver.id}', method="POST")
         input(type="hidden", name="_method", value="DELETE")
         button(type="submit") Delete
   hr

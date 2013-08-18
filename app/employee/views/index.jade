@@ -2,11 +2,11 @@ extends ../../../views/layout
 
 block content
   p: b list of drivers
-    a(href='/driver/new', class='button-link') add new driver
+    a(href='/employee/new', class='button-link') add new employee
   hr
   ul
     for driver, i in drivers
-      li: a(href="/driver/#{driver.id}") #{driver.id}. #{driver.name} [ #{driver.bas} ]
+      li: a(href="/employee/#{driver.id}") #{driver.id}. #{driver.name} [ #{driver.bas} ]
 
   hr
   p: b end of drivers

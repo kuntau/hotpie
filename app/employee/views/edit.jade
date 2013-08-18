@@ -1,7 +1,7 @@
 extends ../../../views/layout
 
 block content
-  form(method="POST", action="/driver/#{driver.id}")
+  form(method="POST", action="/employee/#{driver.id}")
     input(type="hidden", name="_method", value="PUT")
     p ID:
       br
